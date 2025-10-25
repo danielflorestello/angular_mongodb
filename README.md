@@ -1,3 +1,6 @@
+# Frontend hecho en Angular con WebSocket
+Este proyecto frontend sirve para consumir la API de django_websocket.
+
 # AngularMongodb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
