@@ -1,0 +1,67 @@
+<div class="container py-5">
+     <div class="row">
+          <div class="col-8">
+               <h2>Sala de Chat: {{ username2 }}</h2>
+
+               <h4 class="text-danger">Usuario: {{ user }}</h4>
+
+               <div *ngFor="let c of chat">
+                    @if (c.sender == user) {
+
+                    <div class="alert alert-primary" role="alert">
+                         {{ c.message }}
+                         <div>
+                              <small class="fst-italic fw-bold">{{ c.sender }}</small>
+                              <small class="float-end">{{ c.date }}</small>
+                         </div>
+                    </div>
+
+                    } @else {
+
+                    <div class="alert alert-success" role="alert">
+                         {{ c.message }}
+                         <div>
+                              <small class="fst-italic fw-bold">{{ c.sender }}</small>
+                              <small class="float-end">{{ c.date }}</small>
+                         </div>
+                    </div>
+                    }
+               </div>
+
+               <div class="alert-primary" *ngFor="let m of messages">
+                    @if (m.username == user) {
+
+                    <div class="alert alert-primary" role="alert">
+                         {{ m.message }}
+                         <div>
+                              <small class="fst-italic fw-bold">{{ m.username }}</small>
+                              <small class="float-end">{{ m.datetime }}</small>
+                         </div>
+                    </div>
+
+                    } @else {
+
+                    <div class="alert alert-success" role="alert">
+                         {{ m.message }}
+                         <div>
+                              <small class="fst-italic fw-bold">{{ m.username }}</small>
+                              <small class="float-end">{{ m.datetime }}</small>
+                         </div>
+                    </div>
+                    }
+               </div>
+
+               <div id="chat">
+                    <input class="form-control" type="text" id="inputMessage" [(ngModel)]="newMessage"
+                         placeholder="Escribe un mensaje..."
+                         (keypress)="($event.key === 'Enter' ? sendMessage() : null)">
+
+                    <button class="btn btn-success mt-2" id="btnMessage" (click)="sendMessage()">Enviar</button>
+
+                    <button class="btn btn-primary mt-2 float-end" routerLink="/principal">Salir</button>
+               </div>
+
+               <button class="btn btn-danger my-2" (click)="cerrarSesion()">Cerrar Sesion</button>
+          </div>
+     </div>
+</div>

@@ -1,0 +1,17 @@
+<h2>Bienvenidos a CHATEANDO !!!</h2>
+<h4>Elije alguna de nuestras Salas de Chat</h4>
+
+@if (error) {
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+     <strong>{{ error }}</strong> Comuníquese con los administradores
+
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+     </button>
+</div>
+}
+
+<div class="row">
+     <div class="col" *ngFor="let user of users">
+          <button class="btn btn-success" (click)="mostrarChat(user.username)">{{ user.username }}</button>
+     </div>    
+</div>
